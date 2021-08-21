@@ -15,14 +15,17 @@ public class Controller {
     private ArrayList<Req3> req3s;
     private Conector conectorDB;
     
-    public Controller(String url) {
+    public Controller() {
         super();
         req1s = new ArrayList<>();
         req2s = new ArrayList<>();
         req3s = new ArrayList<>();
-        conectorDB = new Conector(url);
+        conectorDB = new Conector();
+        req1();
+        req2();
+        req3();
     }
-    
+
     public void req1() {
         ResultSet rs = conectorDB.getReq1DB();
         try {
@@ -61,34 +64,24 @@ public class Controller {
             e.printStackTrace();
         }
     }
-    
-    public void printReq1() {
-        for (Req1 req1 : req1s) {
-            System.out.println(req1);
-        }
-    }
 
-    public void printReq2() {
-        for (Req2 req2 : req2s) {
-            System.out.println(req2);
-        } 
-    }
-
-    public void printReq3() {
-        for (Req3 req3 : req3s) {
-            System.out.println(req3);
-        }
-    }
-
-    public ArrayList<Req1> getReq1s() {
-        return req1s;
+    public String[] getReq1s() {
+        return convertirListaArray(req1s);
     }
     
-    public ArrayList<Req2> getReq2s() {
-        return req2s;
+    public String[] getReq2s() {
+        return convertirListaArray(req2s);
     }
 
-    public ArrayList<Req3> getReq3s() {
-        return req3s;
+    public String[] getReq3s() {
+        return convertirListaArray(req3s);
+    }
+
+    private String[] convertirListaArray(ArrayList requerimientos){
+        String[] array = new String[requerimientos.size()];
+        for (int i = 0; i < array.length; i++) {
+            array[i] = requerimientos.get(i).toString();
+        }
+        return array;
     }
 }

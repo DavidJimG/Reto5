@@ -1,18 +1,28 @@
 package services;
-import java.sql.Statement;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
 
 
 public class Conector {
 
     private Connection connect;
+
+    private String url;
+    private String user;
+    private String password;
     
-    public Conector(String url) {
+    public Conector() {
         super();
-        connectDB(url);
+        getProperties();
+        connectDB();
     }
     
     public ResultSet getReq1DB() {    
@@ -53,15 +63,28 @@ public class Conector {
         return executeQuery(sql);
     }
         
-    public Connection connectDB(String url) {
+    public Connection connectDB() {
         try {
-            connect = DriverManager.getConnection(url, "root", "");
+            connect = DriverManager.getConnection(url, user, password);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return connect;
     }
 
+    public void getProperties() {
+        try {
+            InputStream ins = new FileInputStream("./data/db.properties");
+            Properties prop = new Properties();
+            prop.load(ins);
+            url = prop.getProperty("url");
+            user = prop.getProperty("user");
+            password = prop.getProperty("password");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
     public ResultSet executeQuery(String sql) {
         ResultSet rs = null;
         try {

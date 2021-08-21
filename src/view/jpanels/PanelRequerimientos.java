@@ -50,7 +50,15 @@ public class PanelRequerimientos extends JPanel implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub    
+        if (e.getActionCommand().equals(BTN_REQ1)){
+            interfaz.mostrarRequerimiento1();
+        }
+        else if (e.getActionCommand().equals(BTN_REQ2)){
+            interfaz.mostrarRequerimiento2();
+        }
+        else if (e.getActionCommand().equals(BTN_REQ3)){
+            interfaz.mostrarRequerimiento3();
+        }
     }
 
 
