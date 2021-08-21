@@ -1,5 +1,5 @@
 package view;
-import controller.Controller;
+// import controller.Controller;
 import view.jpanels.Interfaz;
 
 //Pruebas unicamente

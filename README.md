@@ -1,18 +1,10 @@
-## Getting Started
+# Reto 5 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este repositorio corresponde a la entrega del reto final de la asignatura programación básica, grupo 28 de la Misión TIC 2022 Ruta 2, ciclo 2.
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+## Uso
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Para realizar una conexión correcta desde el proyecto a la base de datos de Mariadb, revisar y, de ser necesario, editar el archivo `db.properties` en la sección de `data`.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+`data.properties` contiene la url, el usuario y la contraseña de la base de datos.
