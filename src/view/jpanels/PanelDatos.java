@@ -24,6 +24,9 @@ public class PanelDatos extends JPanel {
         add(listaRequerimientos);
     }
 
+    public JList<String> getListaRequerimientos() {
+        return listaRequerimientos;
+    }
 
     public void actualizarLista(String[] requerimientos){
         listaRequerimientos.setListData(requerimientos);

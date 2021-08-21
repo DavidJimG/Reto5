@@ -3,6 +3,7 @@ package view.jpanels;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import controller.Controller;
 
@@ -23,12 +24,17 @@ public class Interfaz extends JFrame{
         setLayout(new BorderLayout());
         setTitle("Reto 5");
 
-
         this.opcionesRequerimientos = new PanelRequerimientos(this);
         add(opcionesRequerimientos, BorderLayout.SOUTH);
 
         this.datos = new PanelDatos();
         add(datos, BorderLayout.CENTER);
+
+        JScrollPane scroll = new JScrollPane(datos.getListaRequerimientos());
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        
+        add(scroll);
     }
 
     public Controller getControl() {
